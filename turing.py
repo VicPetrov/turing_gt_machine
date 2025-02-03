@@ -6,7 +6,6 @@ accepts Unary Encoded unsgined integers
 writes 0 or 1 at the end of tape if X > Y
 """
 
-from types import Iterator
 from itertools import repeat
 
 
@@ -19,11 +18,11 @@ class TuringMachine:
     tape_list: list[int]
 
     def __init__(self, state: str, write_head: int, tape_list: list[int]):
-        self.state: str = state
+        self.state = state
         self.write_head = write_head
         self.tape_list = tape_list
 
-    def __iter__(self) -> Iterator[bool]:
+    def __iter__(self):
         return iter(self.update_machine, True)
 
     def update_machine(self):
